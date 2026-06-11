@@ -40,12 +40,6 @@ export default function EX6() {
     buscarDados();
   }, []);
 
-  useEffect(() => {
-    console.log("Total de países juntados:", todosOsPaises.length);
-    console.log("Lista completa unida:", todosOsPaises);
-    console.log("Exemplo do primeiro país:", todosOsPaises[0]);
-  }, [todosOsPaises]);
-
   return (
     <div className={styles.container}>
       <h2 className={styles.titulo}>Exercício 6: lista de países do mundo</h2>
