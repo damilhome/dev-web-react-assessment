@@ -1,0 +1,90 @@
+.cardContainer {
+  width: 100%;
+  max-width: 60rem;
+  background-color: var(--bg-container);
+  padding: 2.4rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.perguntaContainer {
+  display: flex;
+  gap: 2rem;
+}
+
+.pergunta {
+  font-size: 1.8rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.iconeBtn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.iconeBtn:hover {
+  transform: scale(1.3);
+}
+.iconeBtn.revelar {
+  transform: rotate(180deg);
+}
+
+.icone {
+  color: var(--border-focus);
+}
+
+.respostaAnimacao {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition:
+    grid-template-rows 0.3s ease-out,
+    margin-top 0.3s ease-out;
+  margin-top: 0;
+}
+
+.respostaAnimacao.aberto {
+  grid-template-rows: 1fr;
+  margin-top: 2rem;
+}
+
+.respostaContainer {
+  overflow: hidden;
+  background-color: var(--bg-main);
+  padding: 0 1.2rem;
+  border-radius: 0.4rem;
+  border-left: 0.5rem solid var(--border-focus);
+}
+
+.resposta {
+  color: var(--text-secondary);
+  font-style: italic;
+  padding: 1.2rem 0;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
