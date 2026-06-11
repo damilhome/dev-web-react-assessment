@@ -26,6 +26,11 @@ export default function Layout() {
               EX3
             </Link>
           </li>
+          <li className={styles.link}>
+            <Link to="ex4" className={styles.linkText}>
+              EX4
+            </Link>
+          </li>
         </ul>
       </nav>
       <div className={styles.container}>

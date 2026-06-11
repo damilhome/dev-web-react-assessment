@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import EX1 from "./pages/EX1";
 import EX2 from "./pages/EX2";
 import EX3 from "./pages/EX3";
+import EX4 from "./pages/EX4";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="ex1" element={<EX1 />} />
           <Route path="ex2" element={<EX2 />} />
           <Route path="ex3" element={<EX3 />} />
+          <Route path="ex4" element={<EX4 />} />
         </Route>
       </Routes>
     </Router>
