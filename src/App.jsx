@@ -3,6 +3,7 @@ import "./App.css";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import EX1 from "./pages/EX1";
+import EX2 from "./pages/EX2";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="ex1" element={<EX1 />} />
+          <Route path="ex2" element={<EX2 />} />
         </Route>
       </Routes>
     </Router>

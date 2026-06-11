@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  align-items: center;
+  width: 60rem;
+  padding: 2rem;
+}
+
+.titulo {
+  width: 60rem;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.cliquesContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.cliques {
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+
+.btn {
+  background-color: var(--btn-primary);
+  padding: 1rem 2rem;
+  border-radius: 0.8rem;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+.btn:hover {
+  cursor: pointer;
+  background-color: var(--btn-hover);
+}
