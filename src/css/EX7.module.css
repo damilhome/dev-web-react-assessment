@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem;
+}
+
+.titulo {
+  width: 60rem;
+  text-align: center;
+  padding: 1.5rem;
+  border-bottom: 0.1rem solid var(--border-color);
+}
+
+.input {
+  width: 60rem;
+  padding: 1rem;
+  background-color: var(--bg-input);
+  color: var(--text-primary);
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+}
+.input:focus {
+  border: 2px solid var(--border-focus);
+}
+.input::placeholder {
+  color: var(--text-secondary);
+}
+
+.produtosContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.5rem;
+  max-width: 100rem;
+  margin: 0 auto;
+}

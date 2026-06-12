@@ -8,6 +8,7 @@
   /* Backgrounds */
   --bg-main: #0f172a;
   --bg-container: #1e293b;
+  --bg-container-hover: #334155;
   --bg-input: #0b1120;
 
   /* Borders */
@@ -17,10 +18,17 @@
   /* Typography */
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --color-price: #10b981;
 
   /* Action / Button */
   --btn-primary: #3b82f6;
   --btn-hover: #2563eb;
+
+  /* Outros */
+  --color-star: #f59e0b;
+  --tag-bg: rgba(59, 130, 246, 0.15);
+  --tag-text: #93c5fd;
 }
 
 html {

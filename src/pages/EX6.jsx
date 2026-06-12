@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import styles from "../css/EX6.module.css";
-import useFetch from "../hooks/useFetch";
 
 const URL_PARCIAL =
   "https://api.restcountries.com/countries/v5?limit=100&offset=";
