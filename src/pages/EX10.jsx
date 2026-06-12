@@ -1,23 +1,24 @@
 import { useState } from "react";
 import styles from "../css/EX9.module.css";
 
-export default function EX9() {
+export default function EX10() {
   const [dados, setDados] = useState({ nome: "", email: "", telefone: "" });
 
   function handleChange(e) {
     setDados({ ...dados, [e.target.name]: e.target.value });
   }
 
-  function handleClick(e) {
+  function handleSubmit(e) {
+    e.preventDefault();
     alert(JSON.stringify(dados));
   }
 
   return (
     <div className={styles.container}>
       <h2 className={styles.titulo}>
-        Exercício 9: formulário simples com useState
+        Exercício 10: formulário simples com useState
       </h2>
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.inputs}>
           <div className={styles.inputContainer}>
             <label className={styles.label} htmlFor="nome">
@@ -31,6 +32,7 @@ export default function EX9() {
               placeholder="Seu nome completo"
               value={dados.nome}
               onChange={handleChange}
+              required
             />
           </div>
           <div className={styles.inputContainer}>
@@ -45,6 +47,7 @@ export default function EX9() {
               placeholder="Seu melhor e-mail"
               value={dados.email}
               onChange={handleChange}
+              required
             />
           </div>
           <div className={styles.inputContainer}>
@@ -52,7 +55,7 @@ export default function EX9() {
               Telefone
             </label>
             <input
-              type="text"
+              type="number"
               className={styles.input}
               name="telefone"
               id="telefone"
@@ -62,12 +65,7 @@ export default function EX9() {
             />
           </div>
         </div>
-        <input
-          type="button"
-          value="Confirmar"
-          className={styles.btn}
-          onClick={handleClick}
-        />
+        <input type="submit" value="Confirmar" className={styles.btn} />
       </form>
     </div>
   );
