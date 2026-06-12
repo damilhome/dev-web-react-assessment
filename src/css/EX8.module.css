@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  width: 60rem;
+  padding: 2rem;
+}
+
+.titulo {
+  width: 60rem;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.select {
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: var(--bg-container);
+  color: var(--text-primary);
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+  border: none;
+  outline: none;
+}
+
+.categoriaContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  background-color: var(--bg-container);
+  border-radius: 1rem;
+  padding: 2rem;
+}
