@@ -32,4 +32,7 @@
   background-color: var(--bg-container);
   border-radius: 1rem;
   padding: 2rem;
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
