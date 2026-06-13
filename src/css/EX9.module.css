@@ -79,8 +79,12 @@
   border: none;
   outline: none;
   font-weight: 600;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
 }
 .btn:hover {
   cursor: pointer;
   background-color: var(--btn-hover);
+  transform: translateY(-0.5rem);
 }

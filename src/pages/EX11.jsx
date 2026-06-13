@@ -7,7 +7,7 @@ export default function EX11() {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm({ mode: "onBlur" });
+  } = useForm({ mode: "onBlur", reValidateMode: "onBlur" });
 
   function onSubmit(dados) {
     alert(JSON.stringify(dados));
