@@ -1,6 +1,8 @@
 import styles from "./CardProduto.module.css";
 
 export default function CardProduto({ produto }) {
+  if (Object.keys(produto).length === 0) return;
+
   return (
     <div className={styles.card}>
       <img
