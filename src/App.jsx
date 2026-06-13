@@ -13,6 +13,7 @@ import EX8 from "./pages/EX8";
 import EX9 from "./pages/EX9";
 import EX10 from "./pages/EX10";
 import EX11 from "./pages/EX11";
+import EX12 from "./pages/EX12";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="ex9" element={<EX9 />} />
           <Route path="ex10" element={<EX10 />} />
           <Route path="ex11" element={<EX11 />} />
+          <Route path="ex12" element={<EX12 />} />
         </Route>
       </Routes>
     </Router>

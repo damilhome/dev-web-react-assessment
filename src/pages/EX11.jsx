@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import styles from "../css/EX11.module.css";
+import styles from "../css/EX9.module.css";
 
 export default function EX11() {
   const {
