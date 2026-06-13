@@ -21,9 +21,14 @@ export default function EX8() {
       <h2 className={styles.titulo}>Exercício 8: categorias de refeições</h2>
       <select defaultValue="" className={styles.select} onChange={handleChange}>
         <option value="" disabled>
-          {carregando ? "Carregando categorias" : "Selecione uma receita"}
+          {carregando
+            ? "Carregando categorias"
+            : erro
+              ? "Erro ao carregar as categorias."
+              : "Selecione uma receita"}
         </option>
         {!carregando &&
+          !erro &&
           dados.categories.map((categoria) => (
             <option key={categoria.idCategory} value={categoria.idCategory}>
               {categoria.strCategory}

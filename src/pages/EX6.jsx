@@ -54,7 +54,7 @@ export default function EX6() {
           ...resultados[2].data.objects,
         ]);
       } catch (e) {
-        console.error("Erro ao buscar as páginas:", e);
+        console.error("Erro ao carregar os países:", e);
         setErro(e);
       } finally {
         setCarregando(false);
