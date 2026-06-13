@@ -8,9 +8,29 @@ const token = import.meta.env.VITE_REST_COUNTRIES_KEY;
 
 export default function EX6() {
   const [todosOsPaises, setTodosOsPaises] = useState([]);
+  const [erro, setErro] = useState(null);
   const [carregando, setCarregando] = useState(true);
   const [opcaoSelecionada, setOpcaoSelecionada] = useState("");
+  const [paisSelecionado, setPaisSelecionado] = useState(null);
   const { pais } = useParams();
+
+  function selecionarPais(selecao) {
+    const dadosPaisSelecionado = todosOsPaises.filter((item) => {
+      if (item.names.common == selecao) return item;
+    });
+    setPaisSelecionado(dadosPaisSelecionado[0]);
+  }
+
+  function unirListaNomes(lista) {
+    const listaNomes = lista.map((item) => item.name);
+    return listaNomes.join(", ");
+  }
+
+  function handleChange(e) {
+    const selecao = e.target.value;
+    setOpcaoSelecionada(selecao);
+    selecionarPais(selecao);
+  }
 
   useEffect(() => {
     async function buscarDados() {
@@ -35,6 +55,7 @@ export default function EX6() {
         ]);
       } catch (e) {
         console.error("Erro ao buscar as páginas:", e);
+        setErro(e);
       } finally {
         setCarregando(false);
       }
@@ -45,14 +66,12 @@ export default function EX6() {
   useEffect(() => {
     if (pais === "brasil") {
       setOpcaoSelecionada("Brazil");
+      selecionarPais("Brazil");
     } else {
       setOpcaoSelecionada("");
+      selecionarPais(null);
     }
   }, [pais]);
-
-  function handleChange(e) {
-    setOpcaoSelecionada(e.target.value);
-  }
 
   return (
     <div className={styles.container}>
@@ -63,15 +82,39 @@ export default function EX6() {
         onChange={handleChange}
       >
         <option value="" disabled>
-          {carregando ? "Carregando países..." : "Selecione uma opção"}
+          {carregando
+            ? "Carregando países..."
+            : erro
+              ? "Erro ao carregar os países."
+              : "Selecione uma opção"}
         </option>
         {!carregando &&
-          todosOsPaises.map((pais, index) => (
-            <option key={index} value={pais.names.common}>
+          todosOsPaises.map((pais) => (
+            <option key={pais.uuid} value={pais.names.common}>
               {pais.names.common}
             </option>
           ))}
       </select>
+      {paisSelecionado && (
+        <div className={styles.infosContainer}>
+          <p>
+            <span className={styles.realce}>Capital(is):</span>{" "}
+            {unirListaNomes(paisSelecionado.capitals)}
+          </p>
+          <p>
+            <span className={styles.realce}>Língua(s) oficial(is):</span>{" "}
+            {unirListaNomes(paisSelecionado.languages)}
+          </p>
+          <p>
+            <span className={styles.realce}>População:</span>{" "}
+            {paisSelecionado.population}
+          </p>
+          <p>
+            <span className={styles.realce}>Continente:</span>{" "}
+            {paisSelecionado.region}
+          </p>
+        </div>
+      )}
     </div>
   );
 }
