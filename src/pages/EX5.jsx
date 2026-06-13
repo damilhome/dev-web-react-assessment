@@ -8,12 +8,12 @@ export default function EX5() {
   const [isChecked, setIsChecked] = useState(false);
 
   useEffect(() => {
-    if (status === "colab") {
-      setIsChecked(false);
-      setRotulo("Colaborador");
-    } else {
+    if (status === "admin") {
       setIsChecked(true);
       setRotulo("Administrador");
+    } else {
+      setIsChecked(false);
+      setRotulo("Colaborador");
     }
   }, [status]);
 
