@@ -8,11 +8,6 @@ export default function Layout() {
         <ul className={styles.list}>
           <li className={styles.link}>
             <Link to="/" className={styles.linkText}>
-              Home
-            </Link>
-          </li>
-          <li className={styles.link}>
-            <Link to="ex1" className={styles.linkText}>
               EX1
             </Link>
           </li>
