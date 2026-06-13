@@ -1,15 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "../css/EX5.module.css";
+import { useParams } from "react-router-dom";
 
 export default function EX5() {
+  const { status } = useParams();
   const [rotulo, setRotulo] = useState("Colaborador");
+  const [isChecked, setIsChecked] = useState(false);
+
+  useEffect(() => {
+    if (status === "colab") {
+      setIsChecked(false);
+      setRotulo("Colaborador");
+    } else {
+      setIsChecked(true);
+      setRotulo("Administrador");
+    }
+  }, [status]);
 
   function handleChange() {
-    setRotulo((prevState) => {
-      if (prevState === "Colaborador") {
-        return "Administrador";
-      }
-      return "Colaborador";
+    setIsChecked((prevCheck) => {
+      const novoCheck = !prevCheck;
+      setRotulo(novoCheck ? "Administrador" : "Colaborador");
+      return novoCheck;
     });
   }
 
@@ -20,7 +32,13 @@ export default function EX5() {
         <p className={styles.negrito}>O usuário atual é {rotulo}</p>
         <div className={styles.admContainer}>
           <label htmlFor="adm">Administrador</label>
-          <input type="checkbox" id="adm" name="adm" onChange={handleChange} />
+          <input
+            type="checkbox"
+            id="adm"
+            name="adm"
+            checked={isChecked}
+            onChange={handleChange}
+          />
         </div>
       </div>
     </div>

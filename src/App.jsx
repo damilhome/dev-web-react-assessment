@@ -25,7 +25,7 @@ function App() {
           <Route path="ex2" element={<EX2 />} />
           <Route path="ex3" element={<EX3 />} />
           <Route path="ex4" element={<EX4 />} />
-          <Route path="ex5" element={<EX5 />} />
+          <Route path="ex5/:status" element={<EX5 />} />
           <Route path="ex6" element={<EX6 />} />
           <Route path="ex7" element={<EX7 />} />
           <Route path="ex8" element={<EX8 />} />

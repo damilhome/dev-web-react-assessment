@@ -32,8 +32,13 @@ export default function Layout() {
             </Link>
           </li>
           <li className={styles.link}>
-            <Link to="ex5" className={styles.linkText}>
-              EX5
+            <Link to="ex5/admin" className={styles.linkText}>
+              EX5 - Administrador Selecionado
+            </Link>
+          </li>
+          <li className={styles.link}>
+            <Link to="ex5/colab" className={styles.linkText}>
+              EX5 - Colaborador
             </Link>
           </li>
           <li className={styles.link}>
