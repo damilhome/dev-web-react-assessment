@@ -61,6 +61,11 @@ export default function Layout() {
               EX10
             </Link>
           </li>
+          <li className={styles.link}>
+            <Link to="ex11" className={styles.linkText}>
+              EX11
+            </Link>
+          </li>
         </ul>
       </nav>
       <div className={styles.container}>
