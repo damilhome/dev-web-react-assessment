@@ -21,10 +21,12 @@
   outline: none;
   color: var(--text-primary);
   font-weight: 600;
+  transition: transform 0.3s ease;
 }
 .btn:hover {
   cursor: pointer;
   background-color: var(--btn-hover);
+  transform: scale(1.08);
 }
 
 .animacao {
