@@ -24,6 +24,7 @@ export default function EX9() {
 
   function handleClick(e) {
     alert(JSON.stringify(dados));
+    setDados({ nome: "", email: "", telefone: "" });
   }
 
   return (
@@ -66,7 +67,7 @@ export default function EX9() {
               Telefone
             </label>
             <input
-              type="text"
+              type="tel"
               className={styles.input}
               name="telefone"
               id="telefone"
