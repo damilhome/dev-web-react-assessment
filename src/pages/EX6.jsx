@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "../css/EX6.module.css";
+import { useParams } from "react-router-dom";
 
 const URL_PARCIAL =
   "https://api.restcountries.com/countries/v5?limit=100&offset=";
@@ -8,6 +9,8 @@ const token = import.meta.env.VITE_REST_COUNTRIES_KEY;
 export default function EX6() {
   const [todosOsPaises, setTodosOsPaises] = useState([]);
   const [carregando, setCarregando] = useState(true);
+  const [opcaoSelecionada, setOpcaoSelecionada] = useState("");
+  const { pais } = useParams();
 
   useEffect(() => {
     async function buscarDados() {
@@ -39,16 +42,34 @@ export default function EX6() {
     buscarDados();
   }, []);
 
+  useEffect(() => {
+    if (pais === "brasil") {
+      setOpcaoSelecionada("Brazil");
+    } else {
+      setOpcaoSelecionada("");
+    }
+  }, [pais]);
+
+  function handleChange(e) {
+    setOpcaoSelecionada(e.target.value);
+  }
+
   return (
     <div className={styles.container}>
       <h2 className={styles.titulo}>Exercício 6: lista de países do mundo</h2>
-      <select className={styles.select} defaultValue="">
+      <select
+        className={styles.select}
+        value={opcaoSelecionada}
+        onChange={handleChange}
+      >
         <option value="" disabled>
           {carregando ? "Carregando países..." : "Selecione uma opção"}
         </option>
         {!carregando &&
           todosOsPaises.map((pais, index) => (
-            <option key={index}>{pais.names.common}</option>
+            <option key={index} value={pais.names.common}>
+              {pais.names.common}
+            </option>
           ))}
       </select>
     </div>

@@ -47,6 +47,11 @@ export default function Layout() {
             </Link>
           </li>
           <li className={styles.link}>
+            <Link to="ex6/brasil" className={styles.linkText}>
+              EX6 - Brasil
+            </Link>
+          </li>
+          <li className={styles.link}>
             <Link to="ex7" className={styles.linkText}>
               EX7
             </Link>
