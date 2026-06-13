@@ -1,16 +1,20 @@
 import { useState } from "react";
 import styles from "../css/EX9.module.css";
+import { maskPhone } from "../utils/Regex";
 
 export default function EX10() {
   const [dados, setDados] = useState({ nome: "", email: "", telefone: "" });
 
   function handleChange(e) {
-    setDados({ ...dados, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    const finalValue = name === "telefone" ? maskPhone(value) : value;
+    setDados({ ...dados, [name]: finalValue });
   }
 
   function handleSubmit(e) {
     e.preventDefault();
     alert(JSON.stringify(dados));
+    setDados({ nome: "", email: "", telefone: "" });
   }
 
   return (
@@ -32,6 +36,7 @@ export default function EX10() {
               placeholder="Seu nome completo"
               value={dados.nome}
               onChange={handleChange}
+              maxLength="50"
               required
             />
           </div>
@@ -47,6 +52,7 @@ export default function EX10() {
               placeholder="Seu melhor e-mail"
               value={dados.email}
               onChange={handleChange}
+              maxLength="30"
               required
             />
           </div>
@@ -55,13 +61,15 @@ export default function EX10() {
               Telefone
             </label>
             <input
-              type="number"
+              type="tel"
               className={styles.input}
               name="telefone"
               id="telefone"
-              placeholder="Seu número de telefone"
+              placeholder="(00) 00000-0000"
               value={dados.telefone}
               onChange={handleChange}
+              maxLength="15"
+              minLength="14"
             />
           </div>
         </div>

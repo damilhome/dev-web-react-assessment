@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { regexEmail } from "../utils/Regex";
+import { maskPhone, regexEmail } from "../utils/Regex";
 import styles from "../css/EX9.module.css";
 
 export default function EX12() {
@@ -9,16 +9,6 @@ export default function EX12() {
     formState: { errors },
     reset,
   } = useForm({ mode: "onBlur", reValidateMode: "onBlur" });
-
-  const maskPhone = (value) => {
-    if (!value) return "";
-
-    let formattedValue = value.replace(/\D/g, "");
-    formattedValue = formattedValue.replace(/^(\d{2})(\d)/g, "($1) $2");
-    formattedValue = formattedValue.replace(/(\d)(\d{4})$/, "$1-$2");
-
-    return formattedValue;
-  };
 
   function onSubmit(dados) {
     alert(JSON.stringify(dados));
@@ -67,8 +57,8 @@ export default function EX12() {
               {...register("email", {
                 required: "O e-mail é obrigatório",
                 maxLength: {
-                  value: 50,
-                  message: "O e-mail deve ter, no máximo, 50 caracteres.",
+                  value: 30,
+                  message: "O e-mail deve ter, no máximo, 30 caracteres.",
                 },
                 pattern: {
                   value: regexEmail,
@@ -92,7 +82,6 @@ export default function EX12() {
               className={styles.input}
               placeholder="(00) 00000-0000"
               {...register("telefone", {
-                required: "O telefone é obrigatório.",
                 maxLength: {
                   value: 15,
                   message: "O telefone deve ter, no máximo, 15 caracteres.",
