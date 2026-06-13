@@ -33,7 +33,7 @@ export default function Layout() {
           </li>
           <li className={styles.link}>
             <Link to="ex5/admin" className={styles.linkText}>
-              EX5 - Administrador Selecionado
+              EX5 - Administrador
             </Link>
           </li>
           <li className={styles.link}>
@@ -64,6 +64,11 @@ export default function Layout() {
           <li className={styles.link}>
             <Link to="ex9" className={styles.linkText}>
               EX9
+            </Link>
+          </li>
+          <li className={styles.link}>
+            <Link to="ex9/danilo" className={styles.linkText}>
+              EX9 - Danilo
             </Link>
           </li>
           <li className={styles.link}>

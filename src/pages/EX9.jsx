@@ -1,8 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "../css/EX9.module.css";
+import { useParams } from "react-router-dom";
 
 export default function EX9() {
   const [dados, setDados] = useState({ nome: "", email: "", telefone: "" });
+  const { usuario } = useParams();
+
+  useEffect(() => {
+    if (usuario === "danilo") {
+      setDados({
+        nome: "Danilo Almeida Milhome",
+        email: "danilo.milhome@al.infnet.edu.br",
+        telefone: "(77) 11111-1111",
+      });
+    } else {
+      setDados({ nome: "", email: "", telefone: "" });
+    }
+  }, [usuario]);
 
   function handleChange(e) {
     setDados({ ...dados, [e.target.name]: e.target.value });
