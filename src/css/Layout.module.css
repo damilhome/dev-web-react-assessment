@@ -23,6 +23,9 @@
   list-style-type: none;
 }
 
+.link {
+  transition: background-color 0.3s ease;
+}
 .link:hover {
   cursor: pointer;
   background-color: #303c4e;
